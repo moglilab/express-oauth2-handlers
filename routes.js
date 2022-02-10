@@ -27,6 +27,7 @@ exports.init = (arg1, arg2, arg3) => {
       tokenStorage.getUnauthedClient(req, res).generateAuthUrl({
         access_type: 'offline',
         scope: scopes,
+        state: (new Date()).getMilliseconds(),
         prompt: 'consent', // Needed so we receive a refresh token every time
       })
     );
